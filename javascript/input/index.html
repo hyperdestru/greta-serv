@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Input</title>
+</head>
+
+<body>
+	<input type="text" name="age" placeholder="Ton age" id="my-input">
+
+	<button onclick="check_data()">SUBMIT</button>
+
+	<script>
+
+		function check_data() {
+			let v = document.getElementById("my-input").value;
+
+			if (isNaN(v) == false) {
+				console.log("Age : " + v);
+			} else {
+				console.log("Error, age input is not a number.")
+			}
+		}
+
+	</script>
+
+</body>
+
+</html>

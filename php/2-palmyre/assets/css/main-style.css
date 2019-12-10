@@ -1,0 +1,93 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: arial, sans-serif;
+}
+
+a {
+	font-weight: bold;
+	text-decoration: none;
+	color: #000;
+}
+
+.wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+}
+
+.menu {
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.menu ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.menu a:hover {
+	border-bottom: 5px solid #6de875;
+}
+
+.menu-element {
+	font-size: 16px;
+}
+
+main {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	font-size: 0;
+}
+
+article {
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+	margin-bottom: 20px;
+	padding: 10px;
+	font-size: 14px;
+}
+
+.animal-image {
+	margin-bottom: 20px;
+}
+
+.animal-image img {
+	width: 100%;
+}
+
+.animal-title {
+	position: relative;
+	background-color: #6de875;
+	padding: 15px;
+}
+
+.arrow-down {
+	position: absolute;
+	left: 0px;
+	width: 0; 
+	height: 0;
+	border-top: 30px solid #6de875;
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	border-bottom: 30px solid transparent;
+}
+
+.animal-title h3 {
+	margin-bottom: 10px;
+}
+
+.description {
+	text-align: justify;
+	font-size: 14px;
+	line-height: 20px;
+}

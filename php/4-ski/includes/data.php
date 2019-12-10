@@ -1,0 +1,181 @@
+<?php
+
+$colors = [
+	'green'=>'Verte', 
+	'blue'=>'Bleue', 
+	'red'=>'Rouge', 
+	'black'=>'Noire'
+];
+
+$slopes = [
+	[
+		'name'=>'Debutants',
+		'color'=>'green',
+		'open'=>true
+	],
+	[
+		'name'=>'Des Anglais',
+		'color'=>'green',
+		'open'=>true
+	],
+	[
+		'name'=>'Jonction',
+		'color'=>'green',
+		'open'=>true
+	],
+	[
+		'name'=>'Aconit',
+		'color'=>'blue',
+		'open'=>true
+	],
+	[
+		'name'=>'Chardon',
+		'color'=>'blue',
+		'open'=>true
+	],
+	[
+		'name'=>'Crêtes',
+		'color'=>'blue',
+		'open'=>true
+	],
+	[
+		'name'=>'Dryade',
+		'color'=>'blue',
+		'open'=>true
+	],
+	[
+		'name'=>'Gentiane',
+		'color'=>'blue',
+		'open'=>true
+	],
+	[
+		'name'=>'Gentiane Variante',
+		'color'=>'blue',
+		'open'=>true
+	],
+	[
+		'name'=>'Nouvelle Piste des Crêtes',
+		'color'=>'blue',
+		'open'=>false
+	],
+	[
+		'name'=>'Sacca',
+		'color'=>'blue',
+		'open'=>true
+	],
+	[
+		'name'=>'Ancolie',
+		'color'=>'red',
+		'open'=>true
+	],
+	[
+		'name'=>'Asphodele',
+		'color'=>'red',
+		'open'=>true
+	],
+	[
+		'name'=>'Campanule',
+		'color'=>'red',
+		'open'=>true
+	],
+	[
+		'name'=>'Edelweiss',
+		'color'=>'red',
+		'open'=>true
+	],
+	[
+		'name'=>'Mahl Blanc',
+		'color'=>'red',
+		'open'=>false
+	],
+	[
+		'name'=>'Martagon',
+		'color'=>'red',
+		'open'=>true
+	],
+	[
+		'name'=>'Stade de Slalom',
+		'color'=>'red',
+		'open'=>false
+	],
+	[
+		'name'=>'Combe du Barbat',
+		'color'=>'black',
+		'open'=>false
+	],
+	[
+		'name'=>'Orchis',
+		'color'=>'black',
+		'open'=>false
+	],
+	[
+		'name'=>'Luge',
+		'color'=>'green',
+		'open'=>true
+	]
+];
+
+$liftsTypes = [
+	'ski-tow'=>'Téléski', 
+	'chair-lift'=>'Télésiège', 
+	'carpet'=>'Remontées Tapis', 
+	'cable-car'=>'Téléphérique'
+];
+
+$lifts = [
+	[
+		'name'=>'Lys',
+		'type'=>'cable-car',
+		'open'=>true
+	],
+	[
+		'name'=>'Crêtes',
+		'type'=>'chair-lift',
+		'open'=>true
+	],
+	[
+		'name'=>'Breche',
+		'type'=>'chair-lift',
+		'open'=>false
+	],
+	[
+		'name'=>'Grand-Barbat',
+		'type'=>'chair-lift',
+		'open'=>true
+	],
+	[
+		'name'=>'Touyarolles',
+		'type'=>'chair-lift',
+		'open'=>true
+	],
+	[
+		'name'=>'Baumes',
+		'type'=>'ski-tow',
+		'open'=>true
+	],
+	[
+		'name'=>'Source',
+		'type'=>'ski-tow',
+		'open'=>true
+	],
+	[
+		'name'=>'T"Kids',
+		'type'=>'ski-tow',
+		'open'=>true
+	],
+	[
+		'name'=>'Big Foot',
+		'type'=>'carpet',
+		'open'=>true
+	],
+	[
+		'name'=>'Grand Yéti',
+		'type'=>'ski-tow',
+		'open'=>true
+	],
+	[
+		'name'=>'Jonction',
+		'type'=>'ski-tow',
+		'open'=>true
+	]
+];

@@ -1,0 +1,71 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Libre Franklin', arial, sans-serif;
+}
+
+.wrapper {
+	margin: auto;
+	width: 990px;
+}
+
+.animals {
+	font-size: 0;
+}
+
+.animals article {
+	display: inline-block;
+	vertical-align: top;
+	width: 25%;
+	margin: 3%;
+	font-size: 14px;
+	border-top: 1px solid #eee;
+}
+
+.animals article h2 {
+	margin-top: 18px;
+	font-weight: 600;
+}
+
+.animals article h2 a {
+	text-decoration: none;
+	color: #000;
+}
+
+.animals article h2 a:hover {
+	color: #01acb4;
+}
+
+.animals article p {
+	font-size: 12px;
+	text-align: justify;
+}
+
+.image-animal img {
+	width: 280px;
+	height: 140px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+}
+
+.button-link {
+	display: block;
+	font-size: 12px;
+	width: 109px;
+	height: 24px;
+	color: #ddd;
+	text-decoration: none;
+	background-color: #484848;
+	border-radius: 5px;
+	padding: 5px;
+	margin-top: 11px;
+}
+
+.button-link:hover {
+	color: #fff;
+}

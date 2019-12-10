@@ -1,0 +1,143 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 22px;
+	font-family: 'Open Sans', sans-serif;
+	color: #333333;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.wrapper {
+	max-width: 100%;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/********************/
+/*******HEADER*******/
+/********************/
+
+header {
+	padding: 10px 0;
+	min-height: 80px;
+	font-size: 0;
+}
+
+header #logo,
+header #search {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 18px;
+}
+
+header #logo {
+	width: 30%;
+	margin-right: 10%;
+}
+
+header #search {
+	width: 60%;
+	text-align: right;
+}
+
+#banner {
+	height: 100vh;
+	background: url('../images/banner.jpg') no-repeat top center;
+}
+
+#banner h1 {
+	text-align: center;
+}
+
+/********************/
+/*******TABLE********/
+/********************/
+
+table {
+	width: 100%;
+	margin-bottom: 75px;
+}
+
+table caption {
+	/* 2% de padding sur les côtés dans le cas du responsive (le padding occupera 2% de l'espace dispo)
+	Pour pas que ce soit tout collé sur les côtés
+	En general sur des largeurs on applique des % et des px pour les hauteurs */
+	padding: 14px 2% 14px 2%;
+	text-align: center;
+	font-weight: 700;
+	color: #fff;
+	background-color: #3c3c3c;
+}
+
+table td {
+	padding: 12px 15px;
+}
+
+table td:first-child {
+	width: 70px;
+	text-align: center;
+}
+
+table tr:nth-child(odd) {
+	background-color: #f4f4f4;
+}
+
+table td:last-child {
+	text-align: right;
+	font-weight: 600;
+}
+
+table .circle {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: red;
+	/*Pour les mal voyants. On vire le texte dans la cellule("Verte", "rouge" etc)
+	En l'envoyant tout a gauche, pour les truc de description vocale*/
+	text-indent: -9999px;
+}
+
+table .colored-state {
+	font-weight: bold;
+}
+
+table .colored-state.open {
+	color: green;
+}
+
+table .colored-state.close {
+	color: red;
+}
+
+table .circle.green {
+	background-color: #27ae60;
+}
+
+table .circle.blue {
+	background-color: blue;
+}
+
+table .circle.red {
+	background-color: red;
+}
+
+table .circle.black {
+	background-color: black;
+}
