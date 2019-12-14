@@ -1,0 +1,17 @@
+.img-container {
+	height: 500px;
+}
+
+nav button {
+	width: 110px;
+	height: 50px;
+	border: none;
+	border-radius: 10%;
+	color: white;
+	text-transform: uppercase;
+	background-color: #62b5e5;
+}
+
+nav button:first-child {
+	margin-left: 10%;
+}
