@@ -1,7 +1,7 @@
 /* Calcule la moyenne des valeurs d'un tableau. 
 Retourne celle ci à la decimale prés (fournie en parametre) */
 
-function __average(p_array, p_dec) {
+function my_average(p_array, p_dec) {
 	let sum = 0
 	let result = 0
 
@@ -29,7 +29,7 @@ while (!isNaN(input)) {
 	}
 }
 
-let average = __average(grades, 2)
+let average = my_average(grades, 2)
 let count = 0
 
 for (let i = 0; i < grades.length; i++) {
