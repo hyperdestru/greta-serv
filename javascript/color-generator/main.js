@@ -1,73 +1,82 @@
 'use strict'
-var strict = (function() {return !!!this})()
-if (strict) { console.log("strict mode enabled") } else {console.log("strict mode disabled")}
 
-/*******************************************************************************************/
-
-function random_color() {
-	let final_color
-	let rand_r = Math.floor(Math.random() * (255 - 0)).toString()
-	let rand_g = Math.floor(Math.random() * (255 - 0)).toString()
-	let rand_b = Math.floor(Math.random() * (255 - 0)).toString()
-	final_color = "rgb(" + rand_r + "," + rand_g + "," + rand_b + ")"
-	return final_color
+/*Retourne une chaine correspondante a une couleur en rgb choisie au hasard*/
+function randomRgb() {
+	let finalColor;
+	let randR = Math.floor(Math.random() * (255 - 0)).toString();
+	let randG = Math.floor(Math.random() * (255 - 0)).toString();
+	let randB = Math.floor(Math.random() * (255 - 0)).toString();
+	finalColor = "rgb(" + randR + "," + randG + "," + randB + ")";
+	return finalColor;
 }
 
-/******************************************************************************************/
+const buttonWidth = "200px";
+const buttonHeight = "100px";
 
-const color_container = document.getElementById("color-container")
-const launch_button = document.getElementById("launch-button")
+/*Contiendra tous les rectangles de couleurs*/
+const colorContainer = document.getElementById("color-container");
+colorContainer.style.marginLeft = "55px";
 
-const button_width = "200px"
-const button_height = "100px"
+/*Bouton pour lancer la generation des rectangles de couleurs*/
+const launchButton = document.getElementById("launch-button");
+launchButton.style.display = "block";
+launchButton.style.width = buttonWidth;
+launchButton.style.height = buttonHeight;
+launchButton.style.marginLeft = "600px";
+launchButton.style.marginBottom = "50px";
+launchButton.style.borderRadius = "5px";
+launchButton.style.backgroundColor = "grey";
+launchButton.style.fontFamily = "arial";
+launchButton.style.fontWeight = "bold";
+launchButton.style.color = "white";
 
-color_container.style.marginLeft = "55px"
+/*Le nombre de couleurs qui seront generées*/
+const maxColors = 34;
 
-launch_button.style.display = "block"
-launch_button.style.width = button_width
-launch_button.style.height = button_height
-launch_button.style.marginLeft = "600px"
-launch_button.style.marginBottom = "50px"
-launch_button.style.borderRadius = "5px"
-launch_button.style.backgroundColor = "grey"
-launch_button.style.fontFamily = "arial"
-launch_button.style.fontWeight = "bold"
-launch_button.style.color = "white"
+/*Pour stocker les rectangles de couleurs (<div>) 
+qui seront generés dynamiquement, servira a leur suppression*/
+let colorRectStack = [];
 
-const max_colors = 34
-let buttons_stack = []
+let colorRect;
+let colorParagraph;
 
-launch_button.addEventListener("click", function(e) {
+launchButton.addEventListener("click", function(e) {
 
-	if(color_container.childNodes.length > 0) {
-
-		for(let i = 0; i < buttons_stack.length; i++) {
-			buttons_stack[i].remove()
-		}
-		
+	/*Si il y en a on purge les rectangles de couleurs present dans le conteneur
+	remise a zero en gros*/
+	while (colorContainer.firstChild) {
+		colorContainer.removeChild(colorContainer.firstChild);
 	}
 
-	for(let i = 0; i <= max_colors; i++) {
+	for(let i = 0; i <= maxColors; i++) {
 
-		let new_button = document.createElement("div")
-		let p = document.createElement("p")
+		/* Creation du rectangle de couleur*/
+		colorRect = document.createElement("div");
+		colorRect.style.display = 'inline-block';
+		colorRect.style.width = buttonWidth;
+		colorRect.style.height = buttonHeight;
+		colorRect.style.backgroundColor = randomRgb();
 
-		new_button.style.display = 'inline-block'
-		new_button.style.width = button_width
-		new_button.style.height = button_height
-		new_button.style.backgroundColor = random_color()
+		/*Creation du paragraphe de texte (i.e la couleur en rgb)*/
+		colorParagraph = document.createElement("p");
+		colorParagraph.textContent = colorRect.style.backgroundColor;
+		colorParagraph.style.textAlign = "center";
+		colorParagraph.style.verticalAlign = "middle";
+		colorParagraph.style.fontFamily = "arial";
+		colorParagraph.style.fontWeight = "bold";
+		colorParagraph.style.color= "white";
 
-		p.textContent = new_button.style.backgroundColor
-		p.style.textAlign = "center"
-		p.style.verticalAlign = "middle"
-		p.style.fontFamily = "arial"
-		p.style.fontWeight = "bold"
-		p.style.color = "white"
+		/*On met le texte rbg dans le rectangle de couleur*/
+		colorRect.appendChild(colorParagraph);
 
-		new_button.appendChild(p)
-		buttons_stack.push(new_button)
-		color_container.appendChild(new_button)
+		/*On met le rectangle generé dans la pile, 
+		pour pouvoir purger les rectangles plus tard
+		si on rappuie sur le gros bouton*/
+		colorRectStack.push(colorRect);
 
+		/*On met le rectangle coloré avec son texte associé dans le gros conteur
+		qui contient les 34 rectangles generée*/
+		colorContainer.appendChild(colorRect);
 	}
-})
+});
 
