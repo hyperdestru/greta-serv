@@ -27,9 +27,17 @@
 			</a>
 		</div>
 
-		<div id="search">
-			<p>Rechercher</p>
-		</div>
+		<form name="this_form" id="this_form" action="" method="get">
+			<input 
+				type="search" 
+				name="searched"
+				id="searched" 
+				placeholder="Recherchez votre piste">
+
+			<button type="submit" form="this_form" formmethod="get">
+				<img src="assets/images/loupe.png">
+			</button>
+		</form>
 
 	</header>
 
@@ -40,9 +48,17 @@
 	<main id="primary" class="wrapper">
 
 		<div id="title">
-			<?php $infos = infoSlopes($slopes, $colors); ?>
+			<?php 
+				$infos = infoSlopes($slopes, $colors);
+			?>
 			<h2>Ouverture des pistes</h2>
-			<p>Le domaine skiable est ouvert à <?php echo $infos['percentOpen']; ?>%. <?php echo $infos['openSlopes']; ?> pistes ouvertes et <?php echo $infos['closeSlopes']; ?> pistes fermées.</p>
+			<p>Le domaine skiable est ouvert à 
+				<?php 
+					echo $infos['percentOpen'] . '%. ';
+					echo $infos['openSlopes'] . ' pistes ouvertes et ';
+					echo $infos['closeSlopes'] . ' pistes fermées.';
+				?>
+			</p>
 		</div>
 		
 		<ul id="colors">

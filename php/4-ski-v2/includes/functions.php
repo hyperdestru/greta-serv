@@ -18,6 +18,7 @@
 
 		$colorsTotal = [];
 		$colorsOpen = [];
+
 		foreach ($colors as $key => $value) {
 			$colorsOpen[$key] = 0;
 			$colorsTotal[$key] = 0;

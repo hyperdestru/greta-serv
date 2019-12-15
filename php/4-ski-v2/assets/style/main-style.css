@@ -40,7 +40,7 @@ header {
 }
 
 header #logo,
-header #search {
+header form {
 	display: inline-block;
 	vertical-align: middle;
 	font-size: 18px;
@@ -51,9 +51,20 @@ header #logo {
 	margin-right: 10%;
 }
 
-header #search {
+header form {
 	width: 60%;
 	text-align: right;
+}
+
+header form input {
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+header form button {
+	background-color: #fff;
+	border: none;
+	vertical-align: middle;
 }
 
 #banner {
