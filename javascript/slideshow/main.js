@@ -7,7 +7,7 @@ class Movie {
 		this.src = src;
 		movies.push(this);
 	}
-}
+};
 
 function display() {
 	slideImg.src = "images/" + movies[slideIndex].src;
