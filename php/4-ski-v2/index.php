@@ -1,20 +1,19 @@
-<?php 
-	require_once('includes/data.php'); 
-	require_once('includes/functions.php'); 
+<?php
+	require_once('includes/data.php');
+	require_once('includes/functions.php');
 ?>
-
-<!DOCTYPE HTML>
-
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="assets/style/reset.css">
-	<link rel="stylesheet" href="assets/style/main-style.css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600,700|Oswald&display=swap" rel="stylesheet"> 
-	<title>Tous Au Ski!</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600,700|Oswald&display=swap&subset=latin-ext" rel="stylesheet">
+	<link rel="stylesheet" href="assets/style/reset.css" />
+	<link rel="stylesheet" href="assets/style/main-style.css" />
+	<link rel="icon" href="assets/icons/favico.ico" />
+	<title>Station de Cauterets</title>
 </head>
 
 <body>
@@ -28,14 +27,14 @@
 		</div>
 
 		<form name="this_form" id="this_form" action="" method="get">
-			<input 
-				type="search" 
+			<input
+				type="search"
 				name="searched"
-				id="searched" 
-				placeholder="Recherchez votre piste">
-
-			<button type="submit" form="this_form" formmethod="get">
-				<img src="assets/images/loupe.png">
+				id="searched"
+				placeholder="Recherchez votre piste"
+			/>
+			<button id="form-button" type="submit" form="this_form" formmethod="get">
+				<img src="assets/images/loupe.png" alt="Loupe">
 			</button>
 		</form>
 
@@ -48,53 +47,70 @@
 	<main id="primary" class="wrapper">
 
 		<div id="title">
-			<?php 
-				$infos = infoSlopes($slopes, $colors);
-			?>
-			<h2>Ouverture des pistes</h2>
-			<p>Le domaine skiable est ouvert à 
-				<?php 
-					echo $infos['percentOpen'] . '%. ';
-					echo $infos['openSlopes'] . ' pistes ouvertes et ';
-					echo $infos['closeSlopes'] . ' pistes fermées.';
-				?>
-			</p>
+			<img src="assets/images/skier.png" alt="" id="ski">
+
+			<?php $infos = infoSlopes($slopes, $colors); ?>
+
+			<div id="title-text">
+				<h2>Ouverture des pistes</h2>
+				<p>Le domaine skiable est ouvert à 
+					<?php echo $infos['percentOpen']; ?>
+					%.
+					<?php echo $infos['openSlopes']; ?>
+					pistes ouvertes et 
+					<?php echo $infos['closeSlopes']; ?>
+					pistes fermées.
+				</p>
+			</div>
+
 		</div>
-		
+
 		<ul id="colors">
+
 			<?php foreach ($infos['colorsTotal'] as $key => $value) { ?>
-				<li>
-					<?php echo zeroFormat($infos['colorsOpen'][$key]); ?>/<?php echo zeroFormat($value); ?>
-					<p><?php echo $colors[$key]; ?></p>
+
+				<li class="<?php echo $key; ?>">
+
+					<div>
+						<span>
+							<?php echo zeroFormat($infos['colorsOpen'][$key]); ?>
+						</span>/<?php echo zeroFormat($value); ?>
+					</div>
+
+					<div>
+						<p>
+							<?php echo $colors[$key]; ?>
+						</p>
+					</div>
 				</li>
+
 			<?php } ?>
 		</ul>
 
-		<table class="table-slopes">
+		<table>
 			<caption>Pistes de Ski Alpin</caption>
 			<tbody>
-				<?php foreach ($slopes as $value) { ?>
+
+				<?php foreach ($slopes as $slope) { ?>
 					<tr>
+						<?php if (empty($_GET['searched']) ||
+							$slope['name'] == $_GET['searched'] ||
+							stristr($slope['name'], $_GET['searched'])) { 
+						?>
 						<td>
-							<span class="circle <?php echo $value['color']; ?>">
-								<?php echo $colors[$value['color']]; ?>
+							<span class="circle <?php echo $slope['color']; ?>">
+								<?php echo $colors[$slope['color']]; ?>
 							</span>
 						</td>
+
 						<td>
-							<?php 
-								echo $value['name']; 
-							?>
+							<?php echo $slope['name']; ?>
 						</td>
-						<td>
-							<?php if ($value['state']) { 
-								$class = "open";
-							} else { 
-								$class = "close";
-							} ?>
-							<span class="colored-state <?php echo $class ?>">
-								<?php echo stateDisplay($value['state']); ?>
-							</span>
+
+						<td class="<?php echo stateDisplay($slope['state']); ?>">
+							<?php echo stateDisplay($slope['state']); ?>
 						</td>
+						<?php } ?>
 					</tr>
 				<?php } ?>
 			</tbody>
@@ -103,29 +119,29 @@
 		<table>
 			<caption>Remontées Mécaniques</caption>
 			<tbody>
-				<?php foreach ($lifts as $lift) { ?>
+
+				<?php foreach ($lifts as $value) { ?>
 					<tr>
 						<td>
-							<img src="assets/icons/<?php echo $lift['type']; ?>.png" alt="Image" />
+							<img src="assets/icons/<?php echo $value['type']; ?>.png" alt="Image" />
 						</td>
-						<td><?php echo $lift['name']; ?></td>
+
 						<td>
-							<?php if ($lift['state']) { 
-								$custom_class = "open";
-							} else { 
-								$custom_class = "close";
-							} ?>
-							<span class="colored-state <?php echo $custom_class ?>">
-								<?php echo stateDisplay($lift['state']); ?>
-							</span>
+							<?php echo $value['name']; ?>
+						</td>
+
+						<td class="<?php echo stateDisplay($value['state']); ?>">
+							<?php echo stateDisplay($value['state']); ?>
 						</td>
 					</tr>
 				<?php } ?>
+
 			</tbody>
 		</table>
-
 	</main>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="main.js"></script>
 </body>
 
 </html>

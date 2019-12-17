@@ -1,15 +1,13 @@
 * {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
 body {
-	font-weight: 300;
-	font-size: 18px;
-	line-height: 22px;
-	font-family: 'Open Sans', sans-serif;
-	color: #333333;
+    font-size: 18px;
+    line-height: 22px;
+    font-family: 'Open sans', sans-serif;
+    font-weight: 300;
+    color: #333;
 }
 
 a {
@@ -22,133 +20,215 @@ img {
 }
 
 .wrapper {
-	max-width: 100%;
-	width: 1000px;
-	margin-left: auto;
-	margin-right: auto;
+    max-width: 100%;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-
-/********************/
-/*******HEADER*******/
-/********************/
-
-header {
-	padding: 10px 0;
-	min-height: 80px;
-	font-size: 0;
+#header {
+    padding: 10px 0;
+    font-size: 0;
+    height: 10vh;
+    min-height: 80px;
 }
 
-header #logo,
-header form {
+#header #logo,
+#header form {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+#header #logo {
+    width: 30%;
+    margin-right: 10%;
+}
+
+#header form {
+    width: 60%;
+    text-align: right;
+}
+
+form input {
 	display: inline-block;
-	vertical-align: middle;
-	font-size: 18px;
-}
-
-header #logo {
-	width: 30%;
-	margin-right: 10%;
-}
-
-header form {
-	width: 60%;
-	text-align: right;
-}
-
-header form input {
+	vertical-align: top;
 	border: none;
 	border-bottom: 1px solid black;
 }
 
-header form button {
+form button {
+	display: inline-block;
+	vertical-align: top;
 	background-color: #fff;
 	border: none;
-	vertical-align: middle;
 }
 
 #banner {
-	height: 100vh;
-	background: url('../images/banner.jpg') no-repeat top center;
+    position: relative;
+    height: 90vh;
+    background: url('../images/banner.jpg') no-repeat top center;
+    background-size: cover;
+    text-align: center;
 }
 
-#banner h1 {
-	text-align: center;
+#banner h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 75px;
+    color: white;
+    font-size: 50px;
+    text-transform: uppercase;
+    border-top: 4px solid white;
+    border-bottom: 4px solid white;
+    font-family: 'oswald', sans-serif;
+    padding: 5px 5px 10px 5px;
 }
 
-/********************/
-/*******TABLE********/
-/********************/
+#banner::before{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.25;
+}
 
 table {
-	width: 100%;
-	margin-bottom: 75px;
+    width: 100%;
+    margin-bottom: 100px;
 }
 
 table caption {
-	/* 2% de padding sur les côtés dans le cas du responsive (le padding occupera 2% de l'espace dispo)
-	Pour pas que ce soit tout collé sur les côtés
-	En general sur des largeurs on applique des % et des px pour les hauteurs */
-	padding: 14px 2% 14px 2%;
-	text-align: center;
-	font-weight: 700;
-	color: #fff;
-	background-color: #3c3c3c;
+    padding: 10px 2%;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    background-color: #3c3c3c;
 }
 
 table td {
-	padding: 12px 15px;
+    padding: 12px 15px;
+    vertical-align: middle;
 }
 
 table td:first-child {
-	width: 70px;
-	text-align: center;
-}
-
-table tr:nth-child(odd) {
-	background-color: #f4f4f4;
+    width: 70px;
+    text-align: center;
 }
 
 table td:last-child {
-	text-align: right;
-	font-weight: 600;
+    text-align: right;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+table tr:nth-child(odd) {
+    background-color: #f4f4f4;
 }
 
 table .circle {
-	display: inline-block;
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-	background-color: red;
-	/*Pour les mal voyants. On vire le texte dans la cellule("Verte", "rouge" etc)
-	En l'envoyant tout a gauche, pour les truc de description vocale*/
-	text-indent: -9999px;
-}
-
-table .colored-state {
-	font-weight: bold;
-}
-
-table .colored-state.open {
-	color: green;
-}
-
-table .colored-state.close {
-	color: red;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #292929;
+    border-radius: 50%;
+    text-indent: -9999px;
 }
 
 table .circle.green {
-	background-color: #27ae60;
+    background-color: #27ae60;
 }
 
 table .circle.blue {
-	background-color: blue;
+    background-color: #2980b9;
 }
 
 table .circle.red {
-	background-color: red;
+    background-color: #c0392b;
 }
 
-table .circle.black {
-	background-color: black;
+table .open {
+    color: #27ae60;
+}
+
+table .close {
+    color: #e74c3c;
+}
+
+#title{
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+#title #ski{
+    display: inline-block;
+    vertical-align: top;
+    
+
+}
+
+#title #title-text{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 15px;
+    
+}
+
+#title h2{
+    font-family: 'open sans';
+    font-weight: bold;
+}
+
+#colors {
+    font-size: 0;
+    margin-top: 35px;
+    margin-bottom: 95px;
+}
+
+#colors .green{
+    background-color: #2ecc71;
+    color: #27ae60;
+}
+
+#colors .blue{
+    background-color: #3498db;
+    color: #2980b9;
+}
+
+#colors .red{
+    background-color: #e74c3c;
+    color: #c0392b;
+}
+
+#colors .black{
+    background-color: #454648;
+    color: #292929;
+}
+
+#colors li{
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+    padding: 30px 20px;
+    font-weight: 700;
+}
+
+#colors span{
+    font-size: 50px;
+}
+
+#colors li div{
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 20px;
+    width: 50%;
+}
+
+#colors li div:last-child{
+    width: 45%;
+    margin-left: 5px;
+    text-align: right;
 }
