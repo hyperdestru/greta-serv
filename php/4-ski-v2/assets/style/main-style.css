@@ -2,6 +2,15 @@
 	box-sizing: border-box;
 }
 
+input,
+select, 
+textarea {
+	font-size: 15px;
+	font-family: 'Open Sans', arial, sans-serif;
+	font-weight: 300;
+	color: #333;
+}
+
 body {
     font-size: 18px;
     line-height: 22px;
@@ -50,21 +59,43 @@ img {
     text-align: right;
 }
 
+/*On degage le label, pour l'accessibilité (lecture des elements)*/
+#header form label {
+	font-size: 0;
+	/*display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	outline: none;
+	text-indent: -9999px;*/
+}
+
 form input {
 	display: inline-block;
 	vertical-align: top;
 	border: none;
-	border-bottom: 1px solid black;
+	width: 200px;
+	max-width: 100%;
+	line-height: auto;
+	padding: 5px 0;
+	border-bottom: 3px solid #d2d2d2;
+	transition: .3s ease border-color;
+}
+
+form input:focus {
+	border-color: #3498db;
 }
 
 form button {
 	display: inline-block;
-	vertical-align: top;
+	vertical-align: bottom;
 	background-color: #fff;
 	border: none;
+	cursor: pointer;
 }
 
 #banner {
+	display: none;
     position: relative;
     height: 90vh;
     background: url('../images/banner.jpg') no-repeat top center;
@@ -94,6 +125,12 @@ form button {
     height: 100%;
     background-color: #000;
     opacity: 0.25;
+}
+
+.no-results-text {
+	margin-bottom: 25px;
+	text-align: center;
+	font-weight: bold;
 }
 
 table {
@@ -166,15 +203,31 @@ table .close {
 #title #ski{
     display: inline-block;
     vertical-align: top;
-    
-
 }
 
 #title #title-text{
     display: inline-block;
     vertical-align: top;
     margin-left: 15px;
-    
+}
+
+.refresh-button {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.refresh-button a {
+	display: inline-block;
+	padding: 10px 15px;
+	color: #333;
+	font-weight: 700;
+	transition: 4 ease background-color;
+	border: 3px solid #333;
+}
+
+.refresh-button a:hover,
+.refresh-button a:focus {
+	background-color: #f4f4f4;
 }
 
 #title h2{
@@ -231,4 +284,8 @@ table .close {
     width: 45%;
     margin-left: 5px;
     text-align: right;
+}
+
+#slopes {
+	margin-bottom: 40px;
 }

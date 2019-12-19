@@ -57,4 +57,10 @@
 
 		return $number;
 	}
+
+	function isSearched() {
+		if (!empty($_GET['searched'])) { 
+			return $_GET['searched']; 
+		}
+	}
 	

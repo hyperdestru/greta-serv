@@ -27,14 +27,16 @@
 		</div>
 
 		<form name="this_form" id="this_form" action="" method="get">
+			<label>Rechercher</label>
 			<input
 				type="search"
 				name="searched"
 				id="searched"
 				placeholder="Recherchez votre piste"
-			/>
+				value="<?php echo isSearched() ?>"/>
+
 			<button id="form-button" type="submit" form="this_form" formmethod="get">
-				<img src="assets/images/loupe.png" alt="Loupe">
+				<img src="assets/images/loupe-mono.png" alt="Loupe">
 			</button>
 		</form>
 
@@ -87,15 +89,16 @@
 			<?php } ?>
 		</ul>
 
-		<table>
+		<table id="slopes">
 			<caption>Pistes de Ski Alpin</caption>
 			<tbody>
-
 				<?php foreach ($slopes as $slope) { ?>
 					<tr>
 						<?php if (empty($_GET['searched']) ||
 							$slope['name'] == $_GET['searched'] ||
-							stristr($slope['name'], $_GET['searched'])) { 
+							stristr($slope['name'], $_GET['searched'])) {
+
+							$result = true;
 						?>
 						<td>
 							<span class="circle <?php echo $slope['color']; ?>">
@@ -110,11 +113,20 @@
 						<td class="<?php echo stateDisplay($slope['state']); ?>">
 							<?php echo stateDisplay($slope['state']); ?>
 						</td>
+
 						<?php } ?>
 					</tr>
 				<?php } ?>
 			</tbody>
 		</table>
+
+		<?php if (!empty($_GET['searched'])) { ?>
+			<div class="refresh-button">
+				<a href="index.php#slopes" title="Afficher toutes les pistes">
+					Afficher tous les resultats
+				</a>
+			</div>
+		<?php } ?>
 
 		<table>
 			<caption>Remontées Mécaniques</caption>
