@@ -4,7 +4,7 @@ en mode jour-mois-année si le format en arg est 'fr'*/
 function currentDateFormated(format = 'us') {
 	let date = new Date();
 	dateYear = date.getFullYear();
-	/*On rajoute 1 car getMonth() renvoie entre 0 et 11 et non 1 et 12*/
+	/*On rajoute 1 car getMonth() renvoie entre 0 et 11 et non 1 et 12, chelou*/
 	dateMonth = date.getMonth()+1;
 	dateDay = date.getDate();
 	let formatedDate;
@@ -31,7 +31,7 @@ function Task(pDesc, pDate, parent) {
 		task.delBox = delBox;
 		task.delBox.textContent = "Supprimer";
 		task.delBox.style.marginLeft = "10px";
-
+		/*Si on clic sur le bouton, le parent (ici la tache) est supprimé*/
 		task.delBox.addEventListener('click', function(e) {
 			task.remove();
 		});
@@ -43,6 +43,7 @@ function Task(pDesc, pDate, parent) {
 	return task;
 }
 
+/*Pour vider toute la liste des tâches d'un seul coup + les champs inputs*/
 function reset(pContainer, pFields) {
 	while (pContainer.firstChild) {
 		pContainer.removeChild(pContainer.firstChild);
@@ -59,6 +60,7 @@ let main = document.getElementsByTagName('main')[0];
 let taskDesc = document.createElement('input');
 taskDesc.placeholder = "Faire...";
 taskDesc.type = "text";
+taskDesc.required = "required";
 main.appendChild(taskDesc);
 /******************************/
 
@@ -66,6 +68,7 @@ main.appendChild(taskDesc);
 let taskDate = document.createElement('input');
 /*input de type "date" non supporté par Safari*/
 taskDate.type = "date";
+taskDesc.required = "required";
 taskDate.min = currentDateFormated('us');
 taskDate.style.verticalAlign = "top";
 main.appendChild(taskDate);
@@ -95,9 +98,11 @@ submitButton.addEventListener('click', function() {
 	task = Task(taskDesc.value, taskDate.value, taskContainer);
 
 	if (task.desc !== "" && task.date !== "") {
-		/*Accrochage de l'objet tâche a son parent (ici taskContainer) = affichage*/
+		/*Accrochage de l'objet tâche a son parent (ici taskContainer) --> affichage*/
 		task.append();
-		/*Attache d'un bouton de suppression à la tâche*/
+		/*Attache d'un bouton de suppression à la tâche
+		la suppression d'une tache lors du clic sur son bouton est directement
+		geré dans l'objet*/
 		task.createDelbox();
 	}
 
