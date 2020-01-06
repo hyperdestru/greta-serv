@@ -53,7 +53,7 @@
 
 		<main>
 			<section class="slide">
-				<?php foreach ($highlightHouses as $key => $hlHouse) { ?>
+				<?php foreach ($highlightHouses as $hlHouse) { ?>
 					<div>
 						<p>
 							<?php 
@@ -85,7 +85,7 @@
 				<h2>Featured properties</h2>
 				<p>Quisque diam lorem</p>
 
-				<?php foreach ($featuredHouses as $key => $ftHouse) { ?>
+				<?php foreach ($featuredHouses as $ftHouse) { ?>
 					<article>
 						<img src="<?php echo "assets/images/" . $ftHouse['img']; ?>">
 						<p>
@@ -100,6 +100,35 @@
 						</ul>
 					</article>
 				<?php } ?>
+				<button>All properties</button>
+			</section>
+
+			<section class="agents">
+				<h3>Our agents</h3>
+				<ul>
+				<?php foreach ($agents as $agent) { ?>
+						<li>
+							<?php echo $agent['name']; ?>
+						</li>
+
+						<li>
+							<?php echo $agent['description']; ?>
+						</li>
+
+						<li>
+							<img src="">
+							<span>
+								<?php echo $agent['phonePrefix']; ?>
+							</span>
+							<?php echo $agent['phone']; ?>
+						</li>
+
+						<li>
+							<?php echo $agent['email']; ?>
+						</li>
+				<?php } ?>
+				</ul>
+
 			</section>
 		</main>
 

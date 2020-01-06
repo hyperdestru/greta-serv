@@ -135,3 +135,14 @@ foreach ($houses as $key => $house) {
 		$featuredHouses[$key] = $house;
 	}
 }
+
+$agents = [
+	[
+		'name' => 'Lisa gerrard',
+		'description' => 'Lorem ipsum sit amet, consectetuer adipiscing elit.',
+		'img' => 'agent1.png',
+		'phonePrefix' => '+7(123)',
+		'phone' => '456-78-99',
+		'email' => 'lisa.gerrard@realhome.com'
+	]
+];
