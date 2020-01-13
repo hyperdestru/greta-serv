@@ -107,25 +107,25 @@
 				<h3>Our agents</h3>
 				<ul>
 				<?php foreach ($agents as $agent) { ?>
-						<li>
-							<?php echo $agent['name']; ?>
-						</li>
+					<li>
+						<?php echo $agent['name']; ?>
+					</li>
 
-						<li>
-							<?php echo $agent['description']; ?>
-						</li>
+					<li>
+						<?php echo $agent['description']; ?>
+					</li>
 
-						<li>
-							<img src="">
-							<span>
-								<?php echo $agent['phonePrefix']; ?>
-							</span>
-							<?php echo $agent['phone']; ?>
-						</li>
+					<li>
+						<img src="">
+						<span>
+							<?php echo $agent['phonePrefix']; ?>
+						</span>
+						<?php echo $agent['phone']; ?>
+					</li>
 
-						<li>
-							<?php echo $agent['email']; ?>
-						</li>
+					<li>
+						<?php echo $agent['email']; ?>
+					</li>
 				<?php } ?>
 				</ul>
 
