@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>My Form</title>
+	<link rel="stylesheet" href="style/reset.css">
+	<link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+	<div class="wrapper">
+		<h1>Inscription</h1>
+		<form id="signup-form">
+			<div>
+				<label for="username">Pseudo</label>
+				<input id="username" type="text" name="username" placeholder="Pseudo">
+				<p id="username-msg">Pseudo non valide</p>
+			</div>
+
+			<div>
+				<label for="email">Email</label>
+				<input id="email" type="email" name="email" placeholder="Email">
+				<p id="email-msg">Email non valide</p>
+			</div>
+
+			<div>
+				<label for="password">Mot de passe</label>
+				<input id="password" type="password" name="password" placeholder="Mot de passe">
+				<p id="password-msg">Mot de passe non valide</p>
+			</div>
+
+			<div>
+				<label for="submit-btn"></label>
+				<input id="submit-btn" type="submit" name="submit">
+			</div>
+		</form>	
+	</div>
+
+	<script src="main.js"></script>
+</body>
+</html>
