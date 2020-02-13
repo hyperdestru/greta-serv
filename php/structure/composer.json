@@ -1,0 +1,14 @@
+{
+    "name": "forwi/structure",
+    "description": "App movies greta formation",
+    "authors": [
+        {
+            "name": "Forwi",
+            "email": ""
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^5.0",
+        "altorouter/altorouter": "^2.0"
+    }
+}
