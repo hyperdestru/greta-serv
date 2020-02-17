@@ -17,6 +17,7 @@ $router->setBasePath(BASEPATH);
 // Create route
 require_once 'src/routes/admin.php';
 require_once 'src/routes/public.php';
+require_once 'src/routes/api.php';
 
 // Execute routes
 $match = $router->match();
@@ -36,7 +37,13 @@ if ($match) {
 	checkAdmin($router, $match['target']);
 	
 	require_once CONTROLLERS . $controller; // Load controllers
-	require_once PAGES . $match['target']; // Load views
+	
+	/* On ne va pas creer de view pour l'api (on fait tout dans le controller)
+	Du coup cela nous leve une erreur donc on ne va pas faire l'appel des views si
+	il y a le mot "api" dans le chemin */
+	if (strpos($match['target'], 'api/') === false) {
+		require_once PAGES . $match['target']; // Load views
+	}
 
 } else {
 
