@@ -23,6 +23,8 @@ $currentUser = getUser();
 * @param object $router
 * @param array $currentUser data of current user id
 **/
+// Si pas de currentUser alors redirection vers..? Effet de generate('usersList') ?
+// Redirection vers users/admin_index.php ?
 function existUser(object $router, array $currentUser) {
 	if (empty($currentUser)) {
 		header('Location: ' . $router->generate('usersList'));
@@ -42,6 +44,7 @@ function delete(object $router) {
 	if (!empty($_GET['confirm'])) {
 
 		$data['id'] = $_GET['id'];
+		// Pas de * aprés delete ?
 		$sql = 'DELETE FROM users WHERE id = :id';
 		$request = $db->prepare($sql);
 		$request->execute($data);
