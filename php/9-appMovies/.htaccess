@@ -1,0 +1,8 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]
+
+# A activer(decommenter) lorsque le site est en ligne ?
+# Prod mode
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^/(.*)/$ /$1 [R=301,L]
