@@ -1,2 +1,2 @@
 php/8-movies/includes/*.sql
-php/structure/vendor
+php/9-appMovies/vendor/
