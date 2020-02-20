@@ -10,6 +10,12 @@ $requiredFields = [
 ];
 
 function paramsExist():bool {
+	//header('Content-Type: application/json');
+	//header('Access-Control-Allow-Headers: Content-Type');
+	//header('Access-Control-Allow-Origin: *');
+
+	$getData = file_get_contents('php://input');
+	$_POST = json_decode($getData, true);
 
 	$errorMsg = "SQL task not performed. Missing parameter(s). 
 	Required fields : 'title', 'description', 'viewer', 'releaseDate'";
