@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chargement fichier JSON en Ajax</title>
+</head>
+
+<body>
+
+<h1>Chargement fichier JSON en Ajax</h1>
+
+<a href="message.json" class="href">Voir le JSON</a>
+
+<script>
+	'use strict'
+
+	// Instance d'un moteur HTTP/Ajax
+	var xhr = new XMLHttpRequest();
+
+	// Definir une action une fois la réponse obtenue
+	/*xhr.onreadystatechange = function() {
+	  // Code erreur (200 -OK, 404-not found, 500-error etc..)
+	  console.log('status: ', this.status)
+	  // Reponse est le contenu renvoyé
+	  console.log('message: ', this.response)
+	}*/
+
+	//xhr.addEventListener('load', function(event) {})
+	xhr.onload = function() {
+		var responseObj = JSON.parse(this.response);
+		var message = responseObj.message;
+
+		//JSON.parse(this.response).message;
+
+		document.write('message: ', message);
+	}
+
+	/* Définir ressource à charger avec true en 3ieme arguement pour
+	ne pas bloquer le navigateur */
+	xhr.open('GET', 'message.json', true)
+	// Provoque le chargement
+	xhr.send()
+
+</script>
+
+</body>
+
+</html>

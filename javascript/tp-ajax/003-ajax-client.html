@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Client AJAX reception des items</title>
+</head>
+
+<body>
+
+<h1>Client AJAX reception des items</h1>
+
+<button onclick="loadItems()">Charger les items</button>
+
+<ul id=list></ul>
+
+<script>
+
+	/***
+	** Chope de la data de la base de donnée (encodée en JSON dans le fichier
+	** de requete .php), au lieu d'un fichier 'local' comme items.json.
+	** Lié à : 003-ajax-json.php
+	***/
+
+	'use strict'
+
+	// @param item a afficher
+	// @param listElem conteneur ul dans lequel on l'ajoute
+	function renderItem(item, listElem) {
+		var itemElem = document.createElement('li');
+		itemElem.innerText = item.id + ' : ' + item.name;
+		listElem.appendChild(itemElem);
+	}
+
+	var loadItems = function() {
+
+		var xhr = new XMLHttpRequest();
+
+		xhr.onerror = function() {
+			window.alert('Impossible de charger les items');
+		}
+
+		xhr.onload = function () {
+			// Convertir string (json) en valeur []
+			var items = JSON.parse(this.response);
+			var listElem = document.querySelector('#list');
+
+			// Faire un rendu pour chaque élément du tableau dans items.
+
+			// Purger, technique du sioux
+			while (listElem.firstChild) {
+				listElem.removeChild(listElem.firstChild);
+			}
+
+			for (var i = 0; i < items.length; i++) {
+				renderItem(items[i], listElem);
+			}
+		}
+
+		/* Ici la 'source' n'est donc plus un fichier json mais bien
+		un fichier php dans lequel est effectuée la requete SQL vers la base
+		ET l'encodage en json avec la fonction php json_encode() */
+		xhr.open('GET', '003-ajax-json.php');
+		xhr.send();
+	}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Affichage d'une liste externe</title>
+</head>
+
+<body>
+
+<h1>Affichage d'une liste externe (items.json)</h1>
+
+<ul id="da-list"></ul>
+
+<script>
+
+	/***
+	** Lis le fichier items.json (un array) et affiche chaque entrée dans des li
+	** Lié à : items.json
+	***/
+
+	'use strict'
+
+	// Important step 1
+	var xhr = new XMLHttpRequest();
+
+	// Important step 2
+	xhr.onerror = function() {
+		window.alert('Impossible de charger items');
+	}
+
+	xhr.onload = function() {
+
+		// Important step 3
+		var items = JSON.parse(this.response);
+
+		console.log('Items: ', items);
+
+		// Requête pour avoir le conteneur avant la boucle (une seule fois suffit)
+		var container = document.querySelector('#da-list');
+
+		for(let i = 0; i< items.length; i++) {
+			// Création du li
+			var elem = document.createElement('li');
+			// Assignation du contenu text
+			elem.innerText = items[i];
+			// Ajout au conteneur
+			container.appendChild(elem);
+		}
+	}
+
+	// Important step 4
+	xhr.open('GET', 'items.json');
+
+	// Important step 5
+	xhr.send();
+
+</script>
+
+</body>
+</html>

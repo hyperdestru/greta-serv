@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Client AJAX reception/création des items</title>
+</head>
+
+<body>
+
+<h1>Client AJAX reception/création des items</h1>
+
+<form onsubmit="createItem(event)">
+	<label>Valeur : <input type="text" name="saisie"></label>
+</form>
+
+<p>&nbsp;</p>
+
+<button onclick="loadItems()">Charger les items</button>
+<ul id=list></ul>
+
+<script>
+
+	/***
+	** Charge (comme 003-ajax-client.html) les données de la base
+	** Et permet l'ajout d'entrée dans la base via 004-item-create.php
+	** où est effectué le requetage d'insertion.
+	** Lié à : 004-item-create.php
+	***/
+	'use strict'
+
+	// @param item a afficher
+	// @param listElem conteneur ul dans lequel on l'ajoute
+	// Même fonction que dans 003-ajax-client.html
+	function renderItem(item, listElem) {
+		var itemElem = document.createElement('li');
+		itemElem.innerText = item.id + ' : ' + item.name;
+		listElem.appendChild(itemElem);
+	}
+
+	/* Même loadItems() que dans 003-ajax-client.html puisqu'on desirait que 
+	faire que du chargement */
+	var loadItems = function() {
+
+		var xhr = new XMLHttpRequest();
+
+		xhr.onerror = function() {
+			window.alert('Impossible de charger les items');
+		}
+
+		xhr.onload = function () {
+			// convertir string (json) en valeur []
+			var items = JSON.parse(this.response);
+			var listElem = document.querySelector('#list');
+
+			// Faire un rendu pour chaque élément du tableau dans items.
+			// Purger
+			while (listElem.firstChild) {
+				listElem.removeChild(listElem.firstChild);
+			}
+
+			for(var i = 0; i < items.length; i++) {
+				renderItem(items[i], listElem);
+			}
+		}
+
+		xhr.open('GET', '003-ajax-json.php');
+		xhr.send();
+	}
+
+	var createItem = function(event) {
+		event.preventDefault()
+
+		// Création de l'objet
+		var form = event.target;
+
+		// Création item à envoyer au serveur 
+		var item = {
+			name: form.saisie.value
+		}
+
+		// Sérialisation en chaine JSON pour être transportable sur le réseau
+		var itemJSON = JSON.stringify(item);
+
+		// Envoie par http
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', '004-item-create.php', true);
+
+		// En argument du send, le body/payload à envoyer (en json donc)
+		xhr.send(itemJSON);
+	}
+
+</script>
+
+</body>
+</html>
