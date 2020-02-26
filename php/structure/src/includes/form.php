@@ -1,4 +1,13 @@
 <?php
+/**
+ * Return id if exist into url param
+ */
+function getId() {
+	if (!empty($_GET['id'])) :
+		return $_GET['id'];
+	endif;
+}
+
 function checkFields(array $requireFields) {
 	$errorsFields = [];
 
@@ -26,7 +35,8 @@ function checkFields(array $requireFields) {
 }
 
 
-function errorField(array $errors, string $field): array {
+function errorField(array $errors, string $field): array
+{
 	$results['message'] = '';
 	$results['class'] = '';
 

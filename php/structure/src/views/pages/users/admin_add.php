@@ -1,5 +1,3 @@
-<?php $errors = checkFields($requireFields); ?>
-
 <?php get_header('admin'); ?>
 
 <h1 class="mb-4">Éditer un utilisateur</h1>
@@ -37,15 +35,18 @@
 		<?= $error['message']; ?>
 	</div>
 	<div class="form-group">
-		<?php $error = errorField($errors, 'role'); ?>
+		<?php $error = errorField($errors, 'role_id'); ?>
 		<label for="role">Rôle</label>
-		<select class="form-control<?= $error['class']; ?>" name="role" id="role">
+		<select class="form-control<?= $error['class']; ?>" name="role_id" id="role">
 			<option value="">Sélectionner un rôle</option>
 			<?php foreach (getRoles() as $value) : ?>
-				<option value="<?= $value['id']; ?>"<?= valueFieldSelect('role', $value['id']); ?>><?= $value['name']; ?></option>
+				<option value="<?= $value['id']; ?>"<?= valueFieldSelect('role_id', $value['id']); ?>><?= $value['name']; ?></option>
 			<?php endforeach; ?>
 		</select>
 		<?= $error['message']; ?>
+	</div>
+	<div>
+		<input type="hidden" name="id" value="<?= getId(); ?>">
 	</div>
 	<div class="form-group">
 		<input type="submit" value="Sauvegarder" class="btn btn-primary">

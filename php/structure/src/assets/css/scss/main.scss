@@ -1,1 +1,8 @@
-@import 'login';
+$defaultColor: #202020;
+$primaryColor: #f83745;
+
+@import 'reset';
+@import 'mixins';
+@import 'default';
+@import 'header';
+

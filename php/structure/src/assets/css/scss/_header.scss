@@ -1,0 +1,27 @@
+#header {
+	background-color: $primaryColor;
+	padding: 0 2%;
+	display: flex;
+	align-items: center;
+
+	#logo {
+		width: 15%;
+		margin-right: 5%;
+
+		a {
+			color: #fff;
+			font-weight: 700;
+
+			&:hover, &:focus {
+				color: $defaultColor;
+			}
+		}
+	}
+
+	form {
+		background-color: #d2d2d2;
+		width: 80%;
+		display: flex;
+	}
+
+}

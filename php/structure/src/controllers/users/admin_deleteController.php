@@ -4,7 +4,8 @@
  * 
  * @return array result sql request
  */
-function getUser(): array {
+function getUser(): array
+{
 	global $db;
 	$data['id'] = $_GET['id'];
 	$sql = 'SELECT email FROM users WHERE id = :id';
