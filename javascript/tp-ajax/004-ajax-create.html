@@ -13,12 +13,15 @@
 <h1>Client AJAX reception/création des items</h1>
 
 <form onsubmit="createItem(event)">
-	<label>Valeur : <input type="text" name="saisie"></label>
+	<label>Valeur :</label>
+	<input type="text" name="saisie">
+	<input type="submit" name="">
 </form>
 
 <p>&nbsp;</p>
 
 <button onclick="loadItems()">Charger les items</button>
+
 <ul id=list></ul>
 
 <script>
