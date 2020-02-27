@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Users Filtering</title>
+</head>
+
+<body>
+
+	<div class="slideContainer">
+		<label>Score supérieur à : </label><span id="rangeOutput"></span>
+		<div>
+			<input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+		</div>
+	</div>
+	
+	<button id="filterBtn">Filtrer</button>
+
+	<br><br>
+	
+	<table>
+		<thead>
+			<th>Name</th>
+			<th>Score</th>
+		</thead>
+
+		<tbody id="list"></tbody>
+	</table>
+
+	<script src="main.js"></script>
+</body>
+</html>
+
