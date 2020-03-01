@@ -13,18 +13,15 @@
 
 	<header id="header">
 
-		<div id="logo">
-			<a href="" title="Accueil">App movies</a>
+		<div class="logo">
+			<a href="" title="Accueil">Movies App</a>
 		</div>
 		
 		<form action="" method="get">
-			<div>
+			<button id="search-btn" type="submit"><img src="src/assets/images/loupe-mono.png" alt="Loupe"></button>
+			<div id="input-wrapper">
 				<label for="search">Rechercher un film</label>
 				<input id="search" type="search" value="" placeholder="Rechercher par titre de film">
-			</div>
-			
-			<div>
-				<input type="submit" value="Rechercher">
 			</div>
 		</form>
 	</header>

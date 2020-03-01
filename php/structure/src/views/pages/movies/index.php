@@ -1,8 +1,9 @@
-<?php get_header(); ?>
+<?php get_header('public'); ?>
 
-	<section>
+	<section id="landing-section">
 
-		<ul>
+		<ul id="categories">
+			<li><a href="">Toutes</a></li>
 			<?php foreach (getCategories() as $category) { ?>
 				<li>
 					<a href="">
@@ -14,26 +15,26 @@
 
 		<h1>Les 10 meilleurs films de 2016</h1>
 
-		<?php foreach (getMovies() as $key => $movie) { ?>
-			<article>
-				<a href="">
-					<img src="" alt="Affiche du film">
-				</a>
+		<div id="movies-wrapper">
+			<?php foreach (getMovies() as $key => $movie) { ?>
+				<article>
+					<a class="poster" href="">
+						<img src="src/assets/images/affiche1.jpg" alt="Affiche du film">
+					</a>
 
-				<span><?= $movie['viewer'] ?></span>
+					<span class="viewers"><?= $movie['viewer'] ?></span>
 
-				<h2><?= $movie['title'] ?></h2>
-
-				<ul>
-					<li>
-						<a href="">Categorie</a>
-					</li>
-				</ul>
-
-				<span><?= $movie['releaseDate'] ?></span>
-			</article>
-		<?php } ?>
+					<h2><?= $movie['title'] ?></h2>
+					<ul>
+						<li>
+							<a href="">Categorie</a>
+						</li>
+					</ul>
+					<span><?= $movie['releaseDate'] ?></span>
+				</article>
+			<?php } ?>
+		</div>
 
 	</section>
 
-<?php get_footer(); ?>
+<?php get_footer('public'); ?>
