@@ -1,0 +1,14 @@
+{
+    "name": "forwi/9-appMovies",
+    "description": "App movies greta",
+    "authors": [
+        {
+            "name": "Gael",
+            "email": "slotuser@mail.com"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^5.0",
+        "altorouter/altorouter": "^2.0"
+    }
+}
