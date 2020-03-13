@@ -4,7 +4,7 @@ session_start();
 
 // Load dependecies composer
 require_once 'vendor/autoload.php';
-//require_once 'src/includes/Router.php';
+require_once 'src/includes/router.php';
 
 // Load custom files
 require_once 'src/config/config.php';
@@ -13,12 +13,12 @@ require_once 'src/includes/tools.php';
 require_once 'src/includes/form.php';
 
 // Init router
-$router = new AltoRouter();
-$router->setBasePath(BASEPATH);
+//$router = new AltoRouter();
+//$router->setBasePath(BASEPATH);
 
 // Create route
 require_once 'src/routes/admin.php';
-require_once 'src/routes/public.php';
+//require_once 'src/routes/public.php';
 require_once 'src/routes/api.php';
 
 // Execute routes
@@ -31,9 +31,9 @@ if ($match) :
 	$controller = $controller[0] . 'Controller.php';
 
 	// Params routes
-	if (!empty($match['params'])) :
+	/*if (!empty($match['params'])) :
 		$_GET = array_merge($_GET, $match['params']);
-	endif;
+	endif;*/
 
 	// Check admin
 	checkAdmin($router, $match['target']);

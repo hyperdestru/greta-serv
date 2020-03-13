@@ -94,7 +94,7 @@ function updateUser($router) {
 		$password = ' password = :password, ';
 	endif;
 
-	$sql = 'UPDATE users SET firstname = :firstname, lastname = :lastname, email = :email, ' . $password . ' role_id = :role_id WHERE id = :id';
+	$sql = 'UPDATE users SET firstname = :firstname, lastname = :lastname, email = :email, ' . $password . ' role_id = :role_id, modified = NOW() WHERE id = :id';
 	$request = $db->prepare($sql);
 	$request->execute($data);
 

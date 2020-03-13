@@ -1,10 +1,10 @@
 {
     "name": "forwi/9-appMovies",
-    "description": "App movies greta",
+    "description": "App movies greta formation",
     "authors": [
         {
-            "name": "Gael",
-            "email": "slotuser@mail.com"
+            "name": "Gaga",
+            "email": "mail@mail.com"
         }
     ],
     "require": {

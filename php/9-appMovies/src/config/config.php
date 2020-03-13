@@ -13,3 +13,4 @@ define('BASEPATH', '/greta-serv/php/9-appMovies');
 define('ROOT', dirname(__DIR__));
 define('CONTROLLERS', ROOT . '/controllers/');
 define('PAGES', ROOT . '/views/pages/');
+define('ASSETS', BASEPATH . '/src/assets/');

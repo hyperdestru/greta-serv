@@ -12,4 +12,5 @@ $router->map('GET', '/logout', 'users/logout.php', 'logout');
 
 // MOVIES
 $router->map('GET', '/', 'movies/index.php');
-$router->map('GET', '/movie/[a:slug]', 'movies/single.php', 'moviesSingle');
+$router->addMatchTypes(['typeSlug' => '[a-z0-9]+(?:-[a-z0-9]+)*']);
+$router->map('GET', '/movie/[typeSlug:slug]', 'movies/single.php', 'moviesSingle');

@@ -1,13 +1,21 @@
 <?php get_header('Les 10 meilleurs films de 2016'); ?>
 	<section>
 		<ul id="categories">
-			<li><a href="">Toutes</a></li>
+
+			<li><a href="" class="active">Toutes</a></li>
+
 			<?php foreach (getCategories() as $value) : ?>
-				<li><a class="active" href=""><?= $value['name']; ?></a></li>
-				<li><a href=""><?= $value['name']; ?></a></li>
 				<li><a href=""><?= $value['name']; ?></a></li>
 			<?php endforeach; ?>
+
 		</ul>
+
+		<select class="categories-select-responsive">
+				<option value="">Toutes</option>
+				<?php foreach (getCategories() as $value) : ?>
+					<option value=""><?= $value['name']; ?></option>
+				<?php endforeach; ?>
+		</select>
 		
 		<header>
 			<h1 class="title">Les 10 meilleurs films de 2016</h1>

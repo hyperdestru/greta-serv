@@ -12,13 +12,21 @@
 		<div class="container">
 			<a href="" class="navbar-brand">Admin</a>
 			<div class="collapse navbar-collapse">
+
 				<ul class="navbar-nav">
+
 					<li class="nav-item">
 						<a class="nav-link" href="" title="Tableau de bord">Tableau de bord</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="" title="Films">Films</a>
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="" title="Films" data-toggle="dropdown">Films</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="<?= $router->generate('moviesList'); ?>" title="Lister">Lister</a>
+							<a class="dropdown-item" href="<?= $router->generate('moviesAdd'); ?>" title="Ajouter">Ajouter</a>
+						</div>
 					</li>
+
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="" title="Utilisateurs" data-toggle="dropdown">Utilisateurs</a>
 						<div class="dropdown-menu">
@@ -26,6 +34,7 @@
 							<a class="dropdown-item" href="<?= $router->generate('usersAdd'); ?>" title="Ajouter">Ajouter</a>
 						</div>
 					</li>
+
 				</ul>
 			</div>
 			<div class="my-2 my-lg-0">
