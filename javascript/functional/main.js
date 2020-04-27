@@ -18,5 +18,5 @@ console.log("Que les positifs dans data :");
 const onlyPos = data.filter(a => a >= 0);
 console.log(onlyPos);
 
-console.log("Pourquoi la data du debut a été mutée (triée descendant) ? :")
+console.log("Attention sort() change le tableau! :")
 console.log(data);
