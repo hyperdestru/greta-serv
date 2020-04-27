@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Learning Vue App 7</title>
+</head>
+<body>
+
+	<div id="app">
+		<!--Classic v-for on an array-->
+		<ul>
+			<li v-for="item in items" v-bind:key="item.name">
+				{{ item.name }}
+			</li>
+		</ul>
+
+		<!--v-for with index and parent scope access-->
+		<ul>
+			<li v-for="(item, index) in items">
+				{{ parentMessage }} - {{ index }} - {{ item.name }}
+			</li>
+		</ul>
+
+		<!--Classic v-for on an object-->
+		<ul>
+			<li v-for="value in filmObject">
+				{{ value }}
+			</li>
+		</ul>
+
+		<!--v-for on an object with index (0, 1...), name (prop1: ...) and value-->
+		<ul>
+			<li v-for="(value, name, index) in filmObject">
+				{{ index }} - {{ name }} : {{ value }}
+			</li>
+		</ul>
+
+		<!--v-for on an object's array-->
+		<ul>
+			<li v-for="value in filmObject.casting">
+				{{ value }}
+			</li>
+		</ul>
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>

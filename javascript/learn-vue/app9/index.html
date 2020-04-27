@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Learning Vue App 9</title>
+</head>
+<body>
+
+	<div id="app">
+		<!--Pour les traitements simples on peut mettre le js direct dans la directive-->
+		<button v-on:click="counter += 1">Add 1</button>
+		<button v-on:click="counter += 100">Add 100</button>
+		<p>Candies : {{ counter }}</p>
+
+		<!--Mais pour les choses plus complexes on lui passe une methode-->
+		<button v-on:click="greeting">How many do I have ?</button>
+		<p> {{ message }} </p>
+
+		<button v-on:click="say('vue is great')">Say vue is great</button>
+		<button v-on:click="say('whats up ?')">Say what's up</button>
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>

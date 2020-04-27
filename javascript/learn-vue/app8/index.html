@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Learning Vue App 8</title>
+</head>
+<body>
+
+	<div id="app">
+		<ul>
+			<!--Using <template> to include more than 1 element inside a v-for treatment-->
+			<template v-for="n in evenNumbers">
+				<span>Computing... : </span>
+				<li> {{ n }} </li>
+			</template>
+		</ul>
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>

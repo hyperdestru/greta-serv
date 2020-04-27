@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Learning Vue App 2</title>
+</head>
+<body>
+
+	<div id="app">
+		<p> Mot : {{ word }} </p>
+		<button v-on:click="reverse">REVERSE WORD</button>
+		<button v-on:click="toLower">TO LOWER CASE</button>
+		<button v-on:click="toUpper">TO UPPER CASE</button>
+		<button v-on:click="filter">FILTER E</button>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>
