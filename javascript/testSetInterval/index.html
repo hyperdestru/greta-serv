@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		const ships = [
+			{name: "shipA", breach: 0},
+			{name: "shipB", breach: 10, leaks: function() {
+					if (this.breach > 0) {
+						this.breach -= 0.5;
+						console.log(this.name + ' is leaking : ' + this.breach);
+					}
+				}
+			},
+			{name: "shipC", breach: 0},
+		]
+
+		setInterval(() => {
+			ships.forEach(ship => {
+				if (ship?.leaks) {
+					ship.leaks();
+				}
+			})
+		}, 1000);
+	</script>
+</body>
+</html>

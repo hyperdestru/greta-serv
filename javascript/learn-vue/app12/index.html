@@ -1,0 +1,61 @@
+<html>
+<head>Ma première app Vue</head>
+<body>
+	<div id="app">
+		<h1>
+			{{ message }}
+		</h1>
+		<h2>
+			Mon pannier
+		</h2>
+		<ul>
+			<li v-for="item in shopCart">
+				<a :href="item.url">
+					{{ item.label }}
+				</a>: {{ item.cost }} €
+			</li>
+		</ul>
+		<p>Le total {{ getSum }}</p>
+
+		<input v-model="message">
+		</input>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		const app = new Vue({
+			el: '#app',
+			data: {
+				message: "ceci est un test",
+				shopCart: [
+					{
+						label: 'Apple',
+						cost: 10,
+						url: '/apple.html'
+					},
+					{
+						label: 'Banana',
+						cost: 5,
+						url: '/banana.html'
+					},
+					{
+						label: 'Coconut',
+						cost: 2,
+						url: '/coconut.html'
+					}
+
+				]
+			},
+			computed: {
+				totalPrice() {
+					const shop = this.shopCart;
+					let result = 0;
+					for (let i = 0; i < shop.length; i++) {
+						result += shop[i].cost;
+					}
+					return result;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

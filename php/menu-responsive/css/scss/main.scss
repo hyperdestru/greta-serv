@@ -1,0 +1,36 @@
+.menu-push {
+	overflow-x: hidden;
+	position: relative;
+	left: 0;
+	transition: all .3s ease;
+
+	&.menu-push-toleft {
+		left: -240px;
+	}
+}
+
+#menu-responsive {
+	background: #47a3da;
+	position: fixed;
+	width: 240px;
+	height: 100%;
+	top: 0;
+	right: -240px;
+	z-index: 1000;
+	transition: all .3s ease;
+
+	&.menu-open {
+		right: 0;
+	}
+
+	a {
+		display: block;
+		border-bottom: 1px solid #258ecd;
+		padding: 1em;
+
+		&:hover,
+		&:focus {
+			background: #258ecd;
+		}
+	}
+}
